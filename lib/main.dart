@@ -25,7 +25,7 @@ void main() async {
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
-
+print('Hello Ahmed'); 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
     child: MyApp(),
