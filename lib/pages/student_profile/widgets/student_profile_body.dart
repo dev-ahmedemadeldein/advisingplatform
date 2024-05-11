@@ -80,7 +80,7 @@ class _CourseItemState extends State<CourseItem> with AutomaticKeepAliveClientMi
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(height: 10,),
-                    SimesterCoursesTable(courses: courses)
+                    MyTable(courses: courses)
                   ],
                 ),
               ))
