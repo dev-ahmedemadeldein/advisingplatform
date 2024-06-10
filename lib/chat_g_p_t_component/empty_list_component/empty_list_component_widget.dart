@@ -2,9 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'empty_list_component_model.dart';
 export 'empty_list_component_model.dart';
 
@@ -43,9 +40,9 @@ class _EmptyListComponentWidgetState extends State<EmptyListComponentWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         child: InkWell(
           splashColor: Colors.transparent,
           focusColor: Colors.transparent,
@@ -73,7 +70,7 @@ class _EmptyListComponentWidgetState extends State<EmptyListComponentWidget> {
                     ),
               )),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 0.0),
                 child: SelectionArea(
                     child: AutoSizeText(
                   'Please begin by submitting a message',

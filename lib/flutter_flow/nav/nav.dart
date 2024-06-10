@@ -2,21 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -81,31 +74,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? MyProfileWidget()
-          : CreateAccount1Widget(),
+          ? const MyProfileWidget()
+          : const CreateAccount1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? MyProfileWidget()
-              : CreateAccount1Widget(),
+              ? const MyProfileWidget()
+              : const CreateAccount1Widget(),
         ),
         FFRoute(
           name: 'OpenAIchatadvisorpage',
           path: '/openAIchatadvisorpage',
           requireAuth: true,
-          builder: (context, params) => OpenAIchatadvisorpageWidget(),
+          builder: (context, params) => const OpenAIchatadvisorpageWidget(),
         ),
         FFRoute(
           name: 'CreateAccount1',
           path: '/createAccount1',
-          builder: (context, params) => CreateAccount1Widget(),
+          builder: (context, params) => const CreateAccount1Widget(),
         ),
         FFRoute(
           name: 'Login1',
           path: '/login1',
-          builder: (context, params) => Login1Widget(),
+          builder: (context, params) => const Login1Widget(),
         ),
         FFRoute(
           name: 'Home',
@@ -131,13 +124,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MyProfile',
           path: '/myProfile',
           requireAuth: true,
-          builder: (context, params) => MyProfileWidget(),
+          builder: (context, params) => const MyProfileWidget(),
         ),
         FFRoute(
           name: 'Courseedit',
           path: '/courseedit',
           requireAuth: true,
-          builder: (context, params) => CourseeditWidget(),
+          builder: (context, params) => const CourseeditWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -376,7 +369,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

@@ -2,12 +2,9 @@ import '/chat_g_p_t_component/ai_chat_component/ai_chat_component_widget.dart';
 import '/components/logo_component/logo_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'open_a_ichatadvisorpage_model.dart';
 export 'open_a_ichatadvisorpage_model.dart';
@@ -58,7 +55,7 @@ class _OpenAIchatadvisorpageWidgetState
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       floatingActionButton: Builder(
         builder: (context) => Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 16.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 16.0),
           child: FloatingActionButton(
             onPressed: () async {
               await showDialog(
@@ -68,9 +65,9 @@ class _OpenAIchatadvisorpageWidgetState
                     elevation: 0,
                     insetPadding: EdgeInsets.zero,
                     backgroundColor: Colors.transparent,
-                    alignment: AlignmentDirectional(0.0, 0.0)
+                    alignment: const AlignmentDirectional(0.0, 0.0)
                         .resolve(Directionality.of(context)),
-                    child: Container(
+                    child: const SizedBox(
                       height: 680.0,
                       width: 360.0,
                       child: AiChatComponentWidget(),
@@ -95,7 +92,7 @@ class _OpenAIchatadvisorpageWidgetState
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +114,7 @@ class _OpenAIchatadvisorpageWidgetState
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: AutoSizeText(
                       'Academic Advisor AI Assistant, your place to ask any questions related to your program and relative to King Salman International University.',
                       textAlign: TextAlign.center,
@@ -137,12 +134,12 @@ class _OpenAIchatadvisorpageWidgetState
               child: Container(
                 width: double.infinity,
                 height: 200.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[].divide(SizedBox(height: 24.0)),
+                    children: <Widget>[].divide(const SizedBox(height: 24.0)),
                   ),
                 ),
               ),
@@ -151,13 +148,13 @@ class _OpenAIchatadvisorpageWidgetState
               child: wrapWithModel(
                 model: _model.logoComponentModel,
                 updateCallback: () => setState(() {}),
-                child: LogoComponentWidget(),
+                child: const LogoComponentWidget(),
               ),
             ),
           ]
-              .divide(SizedBox(height: 24.0))
-              .addToStart(SizedBox(height: 32.0))
-              .addToEnd(SizedBox(height: 32.0)),
+              .divide(const SizedBox(height: 24.0))
+              .addToStart(const SizedBox(height: 32.0))
+              .addToEnd(const SizedBox(height: 32.0)),
         ),
       ),
     );

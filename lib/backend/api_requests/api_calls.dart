@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:typed_data';
-import '../schema/structs/index.dart';
+
+import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -12,7 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start BuildShip Group Code
 
 class BuildShipGroup {
-  static String baseUrl = 'https://ui3os8.buildship.run';
+  static String getBaseUrl() => 'https://ui3os8.buildship.run';
   static Map<String, String> headers = {};
   static ChatCall chatCall = ChatCall();
 }
@@ -22,14 +22,16 @@ class ChatCall {
     String? threadId = '',
     String? prompt = '',
   }) async {
+    final baseUrl = BuildShipGroup.getBaseUrl();
+
     final ffApiRequestBody = '''
 {
-  "threadId": "${threadId}",
-  "prompt": "${prompt}"
+  "threadId": "$threadId",
+  "prompt": "$prompt"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Chat',
-      apiUrl: '${BuildShipGroup.baseUrl}/chatadvisor',
+      apiUrl: '$baseUrl/chatadvisor',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
@@ -62,11 +64,21 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
+String _toEncodable(dynamic item) {
+  if (item is DocumentReference) {
+    return item.path;
+  }
+  return item;
+}
+
 String _serializeList(List? list) {
   list ??= <String>[];
   try {
-    return json.encode(list);
+    return json.encode(list, toEncodable: _toEncodable);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -74,8 +86,11 @@ String _serializeList(List? list) {
 String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   jsonVar ??= (isList ? [] : {});
   try {
-    return json.encode(jsonVar);
+    return json.encode(jsonVar, toEncodable: _toEncodable);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

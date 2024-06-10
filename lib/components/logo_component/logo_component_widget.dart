@@ -1,12 +1,8 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'logo_component_model.dart';
 export 'logo_component_model.dart';
@@ -51,8 +47,8 @@ class _LogoComponentWidgetState extends State<LogoComponentWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.0, 6.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 6.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -81,10 +77,26 @@ class _LogoComponentWidgetState extends State<LogoComponentWidget>
     return Container(
       width: double.infinity,
       height: 80.0,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: MouseRegion(
         opaque: false,
         cursor: MouseCursor.defer ?? MouseCursor.defer,
+        onEnter: ((event) async {
+          setState(() => _model.mouseRegionHovered = true);
+          if (animationsMap['textOnActionTriggerAnimation'] != null) {
+            await animationsMap['textOnActionTriggerAnimation']!
+                .controller
+                .forward(from: 0.0);
+          }
+        }),
+        onExit: ((event) async {
+          setState(() => _model.mouseRegionHovered = false);
+          if (animationsMap['textOnActionTriggerAnimation'] != null) {
+            await animationsMap['textOnActionTriggerAnimation']!
+                .controller
+                .reverse();
+          }
+        }),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,9 +114,8 @@ class _LogoComponentWidgetState extends State<LogoComponentWidget>
                   setDarkModeSetting(context, ThemeMode.dark);
                 }
 
-                setState(() {
-                  FFAppState().isDarkMode = !FFAppState().isDarkMode;
-                });
+                FFAppState().isDarkMode = !FFAppState().isDarkMode;
+                setState(() {});
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
@@ -142,22 +153,6 @@ class _LogoComponentWidgetState extends State<LogoComponentWidget>
             ),
           ],
         ),
-        onEnter: ((event) async {
-          setState(() => _model.mouseRegionHovered = true);
-          if (animationsMap['textOnActionTriggerAnimation'] != null) {
-            await animationsMap['textOnActionTriggerAnimation']!
-                .controller
-                .forward(from: 0.0);
-          }
-        }),
-        onExit: ((event) async {
-          setState(() => _model.mouseRegionHovered = false);
-          if (animationsMap['textOnActionTriggerAnimation'] != null) {
-            await animationsMap['textOnActionTriggerAnimation']!
-                .controller
-                .reverse();
-          }
-        }),
       ),
     );
   }

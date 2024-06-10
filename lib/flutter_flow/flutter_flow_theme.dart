@@ -148,11 +148,11 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFE21C3D);
   late Color info = const Color(0xFF1C4494);
 
-  late Color background = Color(0xFF1A1F24);
-  late Color darkBackground = Color(0xFF111417);
-  late Color textColor = Color(0xFFFFFFFF);
-  late Color grayDark = Color(0xFF57636C);
-  late Color grayLight = Color(0xFF8B97A2);
+  late Color background = const Color(0xFF1A1F24);
+  late Color darkBackground = const Color(0xFF111417);
+  late Color textColor = const Color(0xFFFFFFFF);
+  late Color grayDark = const Color(0xFF57636C);
+  late Color grayLight = const Color(0xFF8B97A2);
 }
 
 abstract class Typography {
@@ -325,11 +325,11 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color error = const Color(0xFFE21C3D);
   late Color info = const Color(0xFF1C4494);
 
-  late Color background = Color(0xFF1A1F24);
-  late Color darkBackground = Color(0xFF111417);
-  late Color textColor = Color(0xFFFFFFFF);
-  late Color grayDark = Color(0xFF57636C);
-  late Color grayLight = Color(0xFF8B97A2);
+  late Color background = const Color(0xFF1A1F24);
+  late Color darkBackground = const Color(0xFF111417);
+  late Color textColor = const Color(0xFFFFFFFF);
+  late Color grayDark = const Color(0xFF57636C);
+  late Color grayLight = const Color(0xFF8B97A2);
 }
 
 extension TextStyleHelper on TextStyle {

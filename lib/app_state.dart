@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -34,15 +32,15 @@ class FFAppState extends ChangeNotifier {
 
   bool _isDarkMode = true;
   bool get isDarkMode => _isDarkMode;
-  set isDarkMode(bool _value) {
-    _isDarkMode = _value;
-    prefs.setBool('ff_isDarkMode', _value);
+  set isDarkMode(bool value) {
+    _isDarkMode = value;
+    prefs.setBool('ff_isDarkMode', value);
   }
 
   DocumentReference? _coursedatatrans;
   DocumentReference? get coursedatatrans => _coursedatatrans;
-  set coursedatatrans(DocumentReference? _value) {
-    _coursedatatrans = _value;
+  set coursedatatrans(DocumentReference? value) {
+    _coursedatatrans = value;
   }
 }
 
